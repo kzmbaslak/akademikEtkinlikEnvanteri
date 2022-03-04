@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktopApp.ui.controllers.KitapListController">
+   <children>
+      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ToolBar>
+               <items>
+                  <ImageView fitHeight="36.0" fitWidth="48.0" onMousePressed="#refrashPage" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../static/images/refreshIcon.png" />
+                     </image>
+                  </ImageView>
+               </items>
+            </ToolBar>
+            <ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefViewportHeight="2160.0" prefViewportWidth="3840.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                     <children>
+                        <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                           <children>
+                              <TextField fx:id="txtFieldSearchAd" onAction="#fillKitapTbl" promptText="Adı" />
+                              <ComboBox fx:id="cmBoxSearchYazar" onAction="#fillKitapTbl" prefWidth="150.0" promptText="Yazar" />
+                              <ComboBox fx:id="cmBoxSearchYayineviDergi" onAction="#fillKitapTbl" prefWidth="150.0" promptText="Yayınevi/Dergi" />
+                              <DatePicker fx:id="datePickerSearchFrom" onAction="#fillKitapTbl" promptText="Küçük Eşit" />
+                              <DatePicker fx:id="datePickerSearchTo" onAction="#fillKitapTbl" promptText="Büyük Eşit" />
+                           </children>
+                        </HBox>
+                        <TableView fx:id="tblKitap" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1024.0" prefWidth="800.0" tableMenuButtonVisible="true">
+                           <columns>
+                              <TableColumn fx:id="tblColumnAd" prefWidth="132.0" text="ADI" />
+                              <TableColumn fx:id="tblColumnYayinTarihi" prefWidth="110.0" text="YAYIN TARİHİ" />
+                              <TableColumn fx:id="tblColumnYazar" minWidth="0.0" prefWidth="97.0" text="YAZAR" />
+                              <TableColumn fx:id="tblColumnYayineviDergi" prefWidth="129.0" text="YAYINEVİ/DERGİ" />
+                              <TableColumn fx:id="tblColumnFile" prefWidth="129.0" text="DOSYA" />
+                           </columns>
+                        </TableView>
+                        <HBox alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                           <children>
+                              <Button fx:id="buttonAdd" mnemonicParsing="false" onAction="#addKitap" text="Ekle">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="buttonUpdate" mnemonicParsing="false" onAction="#updateKitap" prefHeight="25.0" prefWidth="82.0" text="Güncelle" textFill="#5409f5">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="buttonDelete" layoutX="171.0" layoutY="10.0" mnemonicParsing="false" onAction="#deleteKitap" prefHeight="25.0" prefWidth="30.0" text="Sil" textFill="RED">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#openFileKitap" prefHeight="25.0" prefWidth="79.0" text="Belgeyi Aç" textFill="#0a0a0a" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

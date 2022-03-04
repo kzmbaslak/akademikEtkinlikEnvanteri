@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="600.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktopApp.ui.controllers.KitapController">
+   <children>
+      <VBox layoutX="15.0" layoutY="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ToolBar>
+               <items>
+                  <ImageView fitHeight="36.0" fitWidth="48.0" onMousePressed="#refrashPage" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../static/images/refreshIcon.png" />
+                     </image>
+                  </ImageView>
+               </items>
+            </ToolBar>
+            <GridPane layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Yayınevi Dergi" GridPane.rowIndex="1" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Yayın Tarih" GridPane.rowIndex="2" />
+                  <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <children>
+                        <Button fx:id="buttonAdd" mnemonicParsing="false" onAction="#addKitap" text="Ekle">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="buttonUpdate" mnemonicParsing="false" onAction="#updateKitap" prefHeight="25.0" prefWidth="82.0" text="Güncelle" textFill="#5409f5">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="buttonDelete" layoutX="171.0" layoutY="10.0" mnemonicParsing="false" onAction="#deleteKitap" prefHeight="25.0" prefWidth="30.0" text="Sil" textFill="RED">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ad" />
+                  <TextField fx:id="txtFieldAd" GridPane.columnIndex="1" />
+                  <ComboBox fx:id="cmBoxYayineviDergi" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <VBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <Button layoutX="363.0" layoutY="70.0" mnemonicParsing="false" onAction="#addYayineviDergi" prefWidth="60.0" text="Ekle" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="5.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="buttonUpdateYayineviDergi" mnemonicParsing="false" onAction="#updateYayineviDergi" text="Düzenle" textFill="#5409f5">
+                           <HBox.margin>
+                              <Insets left="3.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <DatePicker fx:id="datePickerYayinTarih" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dosya" GridPane.rowIndex="4" />
+                  <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <children>
+                        <Button fx:id="buttonSelectFile" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#selectFile" text="Dosya Seç" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openFile" text="Dosyayı Aç" />
+                     </children>
+                  </HBox>
+                  <Text fx:id="txtFileName" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                  <ListView fx:id="listPersonel" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <ListView fx:id="listPersonelOther" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <VBox alignment="CENTER" prefHeight="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#move2listPersonel" text="&lt;&lt;" textFill="LIME">
+                           <opaqueInsets>
+                              <Insets bottom="5.0" />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#move2listPersonelOther" text="&gt;&gt;" textFill="RED">
+                           <VBox.margin>
+                              <Insets bottom="3.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#addPersonel" prefHeight="25.0" prefWidth="60.0" text="Ekle">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#updatePersonel" prefHeight="25.0" prefWidth="60.0" text="Düzenle" textFill="#5409f5">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin>
+                  </VBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Personeller" GridPane.rowIndex="3" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="99.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="0.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </GridPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

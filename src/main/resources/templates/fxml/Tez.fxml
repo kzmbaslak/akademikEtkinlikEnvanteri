@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="600.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktopApp.ui.controllers.TezController">
+   <children>
+      <VBox layoutX="15.0" layoutY="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ToolBar>
+               <items>
+                  <ImageView fitHeight="36.0" fitWidth="48.0" onMousePressed="#refrashPage" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../static/images/refreshIcon.png" />
+                     </image>
+                  </ImageView>
+               </items>
+            </ToolBar>
+            <GridPane layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tez Türü" GridPane.rowIndex="1" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Üniversite/Enstitü" GridPane.rowIndex="2" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bitirdiği Tarih" GridPane.rowIndex="4" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Personel" GridPane.rowIndex="5" />
+                  <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <children>
+                        <Button fx:id="buttonAdd" mnemonicParsing="false" onAction="#addTez" text="Ekle">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="buttonUpdate" mnemonicParsing="false" onAction="#updateTez" prefHeight="25.0" prefWidth="82.0" text="Güncelle" textFill="#5409f5">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="buttonDelete" layoutX="171.0" layoutY="10.0" mnemonicParsing="false" onAction="#deleteTez" prefHeight="25.0" prefWidth="30.0" text="Sil" textFill="RED">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tez Konusu" />
+                  <TextField fx:id="txtFieldTezKonusu" GridPane.columnIndex="1" />
+                  <ComboBox fx:id="cmBoxTezTuru" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="cmBoxUniversiteEnstitu" layoutX="110.0" layoutY="73.0" onShowing="#fillUniversiteEnstitu" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <HBox GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <children>
+                        <Button layoutX="363.0" layoutY="70.0" mnemonicParsing="false" onAction="#addUniversiteEnstitu" prefWidth="60.0" text="Ekle" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="5.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="buttonUpdateUniEnst" mnemonicParsing="false" onAction="#updateUniversiteEnstitu" prefHeight="25.0" prefWidth="82.0" text="Düzenle" textFill="#5409f5">
+                           <HBox.margin>
+                              <Insets left="3.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <DatePicker fx:id="datePickerBitirdigiTarih" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <ComboBox fx:id="cmBoxPersonel" onShowing="#fillPersonel" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Button layoutX="282.0" layoutY="98.0" mnemonicParsing="false" onAction="#addPersonel" prefWidth="60.0" text="Ekle" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Button>
+                  <Text layoutX="10.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alan Adı" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="cmBoxYuksekOgrenim" layoutX="108.0" layoutY="188.0" onShowing="#fillYuksekOgrenim" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <HBox GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <children>
+                        <Button layoutX="277.0" layoutY="188.0" mnemonicParsing="false" onAction="#addYuksekOgrenim" prefWidth="60.0" text="Ekle" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="buttonUpdateYukOgr" mnemonicParsing="false" onAction="#updateYuksekOgrenim" prefHeight="25.0" prefWidth="82.0" text="Düzenle" textFill="#5409f5">
+                           <HBox.margin>
+                              <Insets left="3.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dosya" GridPane.rowIndex="6" />
+                  <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <children>
+                        <Button fx:id="buttonSelectFile" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#selectFile" text="Dosya Seç" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openFile" text="Dosyayı Aç" />
+                     </children>
+                  </HBox>
+                  <Text fx:id="txtFileName" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="99.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="0.0" prefWidth="174.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.0" minWidth="0.0" prefWidth="204.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="7.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </GridPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

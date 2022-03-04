@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.embed.swing.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #262626;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktopApp.ui.controllers.DesktopApplicationController">
+   <children>
+      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <MenuBar maxWidth="1.7976931348623157E308">
+              <menus>
+                <Menu mnemonicParsing="false" text="Veri">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#importData" text="İçe Aktar" />
+                        <MenuItem mnemonicParsing="false" onAction="#exportData" text="Dışa Aktar" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Tablolar">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#goToBirlik" text="Birlik" />
+                        <MenuItem mnemonicParsing="false" onAction="#goToKurs" text="Kurs" />
+                        <MenuItem mnemonicParsing="false" onAction="#goToRutbe" text="Rütbe" />
+                        <MenuItem mnemonicParsing="false" onAction="#goToSinav" text="Sınav" />
+                        <MenuItem mnemonicParsing="false" onAction="#goToTez" text="Tez" />
+                        <MenuItem mnemonicParsing="false" onAction="#goToUniversiteEnstitu" text="Üniversite Enstituler" />
+                        <MenuItem mnemonicParsing="false" onAction="#goToBelge" text="Belge" />
+                        <MenuItem mnemonicParsing="false" onAction="#goToYayin" text="Yayın" />
+                        <MenuItem mnemonicParsing="false" onAction="#goToKitap" text="Kitap" />
+                        <MenuItem mnemonicParsing="false" onAction="#goToYayineviDergi" text="Yayınevi/Dergi" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <ToolBar prefHeight="32.0" prefWidth="800.0">
+               <items>
+                  <ImageView fitHeight="36.0" fitWidth="48.0" onMousePressed="#refrashPage" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../static/images/refreshIcon.png" />
+                     </image>
+                  </ImageView>
+               </items>
+            </ToolBar>
+            <AnchorPane maxHeight="1.7976931348623157E308">
+               <children>
+                  <SplitPane dividerPositions="0.379585326953748" maxHeight="1.7976931348623157E308" orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefViewportHeight="768.0" prefViewportWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <content>
+                                    <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1024.0" spacing="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <HBox>
+                                             <children>
+                                                <TextField fx:id="txtFieldSearchAd" onAction="#fillAkdmEnvtrTbl" promptText="İsim" />
+                                                <TextField fx:id="txtFieldSearchSoyad" onAction="#fillAkdmEnvtrTbl" promptText="Soyisim" />
+                                                <TextField fx:id="txtFieldSearchTc" onAction="#fillAkdmEnvtrTbl" promptText="Tc No" />
+                                                <TextField fx:id="txtFieldSearchSicil" onAction="#fillAkdmEnvtrTbl" promptText="Sicil" />
+                                                <TextField fx:id="txtFieldSearchTel" onAction="#fillAkdmEnvtrTbl" promptText="Tel" />
+                                                <TextField fx:id="txtFieldSearchAciklama" onAction="#fillAkdmEnvtrTbl" promptText="Açıklama" />
+                                             </children>
+                                          </HBox>
+                                          <HBox>
+                                             <children>
+                                                <ComboBox fx:id="cmBoxSearchRutbe" onAction="#fillAkdmEnvtrTbl" prefWidth="150.0" promptText="Rütbe" />
+                                                <ComboBox fx:id="cmBoxSearchBirlik" onAction="#fillAkdmEnvtrTbl" prefWidth="150.0" promptText="Birlik" />
+                                             </children>
+                                          </HBox>
+                                          <TableView fx:id="tblAkdmEnvtr" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1024.0" prefWidth="800.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                                <TableColumn fx:id="tblColumnNumber" editable="false" prefWidth="26.0" sortable="false" text="#" />
+                                              <TableColumn fx:id="tblColumnTc" editable="false" prefWidth="115.0" sortable="false" text="TC NO" />
+                  								<TableColumn fx:id="tblColumnAd" prefWidth="109.0" text="AD" />
+                                                <TableColumn fx:id="tblColumnSoyad" text="SOYAD" />
+                                                <TableColumn fx:id="tblColumnSicil" minWidth="0.0" prefWidth="88.0" text="SİCİL" />
+                                                <TableColumn fx:id="tblColumnTel" minWidth="0.0" prefWidth="120.0" text="TEL" />
+                                                <TableColumn fx:id="tblColumnBirlik" prefWidth="102.0" text="BİRLİK" />
+                                                <TableColumn fx:id="tblColumnSinif" prefWidth="102.0" text="SINIF" />
+                                                <TableColumn fx:id="tblColumnRutbe" prefWidth="102.0" text="RÜTBE" />
+                                                <TableColumn fx:id="tblColumnDoktoraTez" prefWidth="102.0" text="DOKTORA TEZLERİ" />
+                                                <TableColumn fx:id="tblColumnYukLisTez" prefWidth="102.0" text="YÜKSEK LİSANS TEZLERİ" />
+                                                <TableColumn fx:id="tblColumnKurs" prefWidth="102.0" text="KURSLAR" />
+                                                <TableColumn fx:id="tblColumnAles" prefWidth="102.0" text="ALES" />
+                                                <TableColumn fx:id="tblColumnYdsYokdilKpds" prefWidth="102.0" text="YDS/YÖKDİL/KPDS" />
+                                                <TableColumn fx:id="tblColumnYayin" prefWidth="102.0" text="YAYINLAR" />
+                                                <TableColumn fx:id="tblColumnKitap" prefWidth="102.0" text="KİTAPLAR" />
+                                                <TableColumn fx:id="tblColumnBelge" prefWidth="102.0" text="BELGELER" />
+                                                <TableColumn fx:id="tblColumnAciklamalar" prefWidth="102.0" text="AÇIKLAMALAR" />
+                                            </columns>
+                                          </TableView>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1095.0" prefWidth="499.0">
+                           <children>
+                              <TabPane layoutX="29.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <tabs>
+                                  <Tab text="Düzenleme">
+                                       <content>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <ScrollPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <content>
+                                                      <HBox>
+                                                         <children>
+                                                            <GridPane focusTraversable="true" AnchorPane.bottomAnchor="-150.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                              <columnConstraints>
+                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" />
+                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="0.0" />
+                                                              </columnConstraints>
+                                                              <rowConstraints>
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                              </rowConstraints>
+                                                               <children>
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Birlik" GridPane.rowIndex="1" />
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ünvan" GridPane.rowIndex="2" />
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Adı" GridPane.rowIndex="3" />
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Soyadı" GridPane.rowIndex="4" />
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rütbe" GridPane.rowIndex="5" />
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sicil" GridPane.rowIndex="6" />
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tel" GridPane.rowIndex="7" />
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Açıklama" GridPane.rowIndex="8" />
+                                                                  <TextField fx:id="txtFieldBirlik" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                  <TextField fx:id="txtFieldUnvan" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                                  <TextField fx:id="txtFieldAd" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                                  <TextField fx:id="txtFieldSoyad" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                                  <TextField fx:id="txtFieldRutbe" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                                  <TextField fx:id="txtFieldSicil" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                                                  <TextField fx:id="txtFieldTel" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                                                  <TextField fx:id="txtFieldAciklama" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                                                  <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                                                     <children>
+                                                                        <Button mnemonicParsing="false" onAction="#addPersonel" prefHeight="25.0" prefWidth="82.0" text="Ekle" textFill="#0a0a0a">
+                                                                           <HBox.margin>
+                                                                              <Insets right="5.0" />
+                                                                           </HBox.margin>
+                                                                        </Button>
+                                                                        <Button layoutX="166.0" layoutY="12.0" mnemonicParsing="false" onAction="#editPersonel" prefHeight="25.0" prefWidth="82.0" text="Düzenle" textFill="#5409f5" />
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TC Kimlik No" />
+                                                                  <TextField fx:id="txtFieldTcNo" editable="false" GridPane.columnIndex="1" />
+                                                               </children>
+                                                               <padding>
+                                                                  <Insets left="10.0" />
+                                                               </padding>
+                                                            </GridPane>
+                                                            <GridPane maxHeight="-Infinity" prefHeight="325.0">
+                                                              <columnConstraints>
+                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" />
+                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+                                                              </columnConstraints>
+                                                              <rowConstraints>
+                                                                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="0.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                              </rowConstraints>
+                                                               <children>
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Doktora Alanı" />
+                                                                  <ListView fx:id="listDoktoraAlan" GridPane.columnIndex="1">
+                                                                     <GridPane.margin>
+                                                                        <Insets />
+                                                                     </GridPane.margin>
+                                                                  </ListView>
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Doktora Tez Konusu" GridPane.rowIndex="1" />
+                                                                  <ListView fx:id="listDoktoraTezKonusu" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                     <GridPane.margin>
+                                                                        <Insets />
+                                                                     </GridPane.margin>
+                                                                  </ListView>
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Doktora Üniversite/Enstitü" GridPane.rowIndex="2" />
+                                                                  <ListView fx:id="listDoktoraUniEns" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                                  <ListView fx:id="listDoktoraBitTarih" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Doktora Bitirdiği Tarih" GridPane.rowIndex="3" />
+                                                                  <VBox alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                                     <children>
+                                                                        <Button mnemonicParsing="false" onAction="#openFileDoktora" prefHeight="25.0" prefWidth="79.0" text="Belgeyi Aç" textFill="#0a0a0a">
+                                                                           <HBox.margin>
+                                                                              <Insets right="5.0" />
+                                                                           </HBox.margin>
+                                                                        </Button>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                               <padding>
+                                                                  <Insets left="10.0" />
+                                                               </padding>
+                                                            </GridPane>
+                                                            <GridPane maxHeight="-Infinity" prefHeight="325.0">
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                                                               </columnConstraints>
+                                                               <padding>
+                                                                  <Insets left="10.0" />
+                                                               </padding>
+                                                               <rowConstraints>
+                                                                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="0.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="0.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                               <children>
+                                                                  <ListView fx:id="listYLAlan" GridPane.columnIndex="1" />
+                                                                  <ListView fx:id="listYLTezKonusu" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                  <ListView fx:id="listYLUniEnst" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                                  <ListView fx:id="listYLBitTarih" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Yüksek Lisans Alanı" />
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Yüksek Lisans Tez Konusu" GridPane.rowIndex="1" />
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Yüksek Lisans Üniversite/Enstitü " GridPane.rowIndex="2" />
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Yüksek Lisans Bitirdiği Tarih" GridPane.rowIndex="3" />
+                                                                  <VBox alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                                     <children>
+                                                                        <Button mnemonicParsing="false" onAction="#openFileYuksekLisans" prefHeight="25.0" prefWidth="79.0" text="Belgeyi Aç" textFill="#0a0a0a">
+                                                                           <HBox.margin>
+                                                                              <Insets right="5.0" />
+                                                                           </HBox.margin>
+                                                                        </Button>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </GridPane>
+                                                            <GridPane maxHeight="-Infinity" prefHeight="325.0">
+                                                               <children>
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kurslar" />
+                                                                  <ListView fx:id="listKurs" GridPane.columnIndex="1" />
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ales" GridPane.rowIndex="1" />
+                                                                  <ListView fx:id="listAles" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="YDS/YÖKDİL/KPDS" GridPane.rowIndex="2" />
+                                                                  <ListView fx:id="listYdsYokdilKpds" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Belgeler" GridPane.rowIndex="3" />
+                                                                  <ListView fx:id="listBelge" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                                  <VBox alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                                                     <children>
+                                                                        <Button mnemonicParsing="false" onAction="#openFileBelge" prefHeight="25.0" prefWidth="79.0" text="Belgeyi Aç" textFill="#0a0a0a">
+                                                                           <HBox.margin>
+                                                                              <Insets right="5.0" />
+                                                                           </HBox.margin>
+                                                                        </Button>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" />
+                                                               </columnConstraints>
+                                                               <padding>
+                                                                  <Insets left="10.0" />
+                                                               </padding>
+                                                               <rowConstraints>
+                                                                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="0.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                            </GridPane>
+                                                            <GridPane maxHeight="-Infinity" prefHeight="162.0">
+                                                               <children>
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Yayınlar" />
+                                                                  <ListView fx:id="listYayin" GridPane.columnIndex="1" />
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kitaplar" GridPane.rowIndex="1" />
+                                                                  <ListView fx:id="listKitap" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                  <VBox alignment="CENTER_LEFT" GridPane.columnIndex="2">
+                                                                     <children>
+                                                                        <Button mnemonicParsing="false" onAction="#openFileYayin" prefHeight="25.0" prefWidth="79.0" text="Belgeyi Aç" textFill="#0a0a0a" GridPane.columnIndex="2" />
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                                     <children>
+                                                                        <Button mnemonicParsing="false" onAction="#openFileKitap" prefHeight="25.0" prefWidth="79.0" text="Belgeyi Aç" textFill="#0a0a0a" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+                                                               </columnConstraints>
+                                                               <padding>
+                                                                  <Insets left="10.0" />
+                                                               </padding>
+                                                               <rowConstraints>
+                                                                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="0.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                            </GridPane>
+                                                         </children>
+                                                      </HBox>
+                                                   </content>
+                                                </ScrollPane>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                  </Tab>
+<!--                                   <Tab text="Ayrıntı"> -->
+<!--                                     <content> -->
+<!--                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"> -->
+<!--                                              <children> -->
+<!--                                                 <ScrollPane layoutX="30.0" layoutY="41.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"> -->
+<!--                                                    <content> -->
+<!--                                                       <AnchorPane> -->
+<!--                                                          <children> -->
+<!--                                                             <VBox> -->
+<!--                                                                <children> -->
+<!--                                                                   <TableView fx:id="tblPersonel" fixedCellSize="30.0" prefHeight="90.0" prefWidth="504.0"> -->
+<!--                                                                     <columns> -->
+<!--                                                                       <TableColumn prefWidth="500.0" text="PERSONEL"> -->
+<!--                                                                            <columns> -->
+<!--                                                                             <TableColumn fx:id="tblColPersonelTc" prefWidth="75.0" text="TC NO" /> -->
+<!--                                                                               <TableColumn fx:id="tblColPersonelAd" prefWidth="85.0" text="AD" /> -->
+<!--                                                                               <TableColumn fx:id="tblColPersonelSoyad" prefWidth="75.0" text="SOYAD" /> -->
+<!--                                                                               <TableColumn fx:id="tblColPersonelSicil" prefWidth="75.0" text="SİCİL" /> -->
+<!--                                                                               <TableColumn fx:id="tblColPersonelTel" prefWidth="85.0" text="TEL" /> -->
+<!--                                                                               <TableColumn fx:id="tblColPersonelAciklama" prefWidth="100.0" text="AÇIKLAMA" /> -->
+<!--                                                                            </columns> -->
+<!--                                                                         </TableColumn> -->
+<!--                                                                     </columns> -->
+<!--                                                                      <columnResizePolicy> -->
+<!--                                                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /> -->
+<!--                                                                      </columnResizePolicy> -->
+<!--                                                                   </TableView> -->
+<!--                                                                   <Button mnemonicParsing="false" onAction="#editPersonel" text="Düzenle"> -->
+<!--                                                                      <VBox.margin> -->
+<!--                                                                         <Insets bottom="5.0" left="200.0" top="5.0" /> -->
+<!--                                                                      </VBox.margin> -->
+<!--                                                                   </Button> -->
+<!--                                                                   <TableView fx:id="tblBirlik" fixedCellSize="30.0" prefHeight="100.0" prefWidth="504.0"> -->
+<!--                                                                     <columns> -->
+<!--                                                                       <TableColumn maxWidth="1.7976931348623157E308" prefWidth="500.0" text="BİRLİK"> -->
+<!--                                                                            <columns> -->
+<!--                                                                             <TableColumn fx:id="tblColBirlikAd" prefWidth="500.0" text="AD" /> -->
+<!--                                                                            </columns> -->
+<!--                                                                         </TableColumn> -->
+<!--                                                                     </columns> -->
+<!--                                                                      <columnResizePolicy> -->
+<!--                                                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /> -->
+<!--                                                                      </columnResizePolicy> -->
+<!--                                                                   </TableView> -->
+<!--                                                                   <TableView fx:id="tblRutbe" fixedCellSize="30.0" prefHeight="90.0" prefWidth="504.0"> -->
+<!--                                                                     <columns> -->
+<!--                                                                       <TableColumn prefWidth="500.0" text="RÜTBE"> -->
+<!--                                                                            <columns> -->
+<!--                                                                             <TableColumn fx:id="tblColRutbeAd" prefWidth="500.0" text="AD" /> -->
+<!--                                                                            </columns> -->
+<!--                                                                         </TableColumn> -->
+<!--                                                                     </columns> -->
+<!--                                                                      <columnResizePolicy> -->
+<!--                                                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /> -->
+<!--                                                                      </columnResizePolicy> -->
+<!--                                                                   </TableView> -->
+<!--                                                                   <TableView fx:id="tblSinif" fixedCellSize="30.0" prefHeight="90.0" prefWidth="504.0"> -->
+<!--                                                                     <columns> -->
+<!--                                                                       <TableColumn prefWidth="500.0" text="SINIF"> -->
+<!--                                                                            <columns> -->
+<!--                                                                             <TableColumn fx:id="tblColSinifAd" prefWidth="500.0" text="AD" /> -->
+<!--                                                                            </columns> -->
+<!--                                                                         </TableColumn> -->
+<!--                                                                     </columns> -->
+<!--                                                                      <columnResizePolicy> -->
+<!--                                                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /> -->
+<!--                                                                      </columnResizePolicy> -->
+<!--                                                                   </TableView> -->
+<!--                                                                </children> -->
+<!--                                                             </VBox> -->
+<!--                                                          </children> -->
+<!--                                                       </AnchorPane> -->
+<!--                                                    </content> -->
+<!--                                                 </ScrollPane> -->
+<!--                                              </children> -->
+<!--                                           </AnchorPane> -->
+<!--                                     </content> -->
+<!--                                   </Tab> -->
+                                    <Tab text="Console">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TextArea fx:id="txtAreaConsole" editable="false" onMousePressed="#fillConsole" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <HBox alignment="CENTER_RIGHT" blendMode="HARD_LIGHT" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="5.0">
+                                                   <children>
+                                                      <Button layoutX="-16.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#fillConsole" prefHeight="25.0" text="Yenile" textFill="#1a10e1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="216.0">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font></Button>
+                                                      <Button layoutX="216.0" mnemonicParsing="false" onAction="#clearConsole" prefHeight="25.0" text="Temizle" textFill="#f20000" AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font></Button>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

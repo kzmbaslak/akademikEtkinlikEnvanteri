@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktopApp.ui.controllers.PersonelController">
+   <children>
+      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ToolBar prefHeight="21.0" prefWidth="767.0" AnchorPane.bottomAnchor="710.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <items>
+                  <ImageView fitHeight="36.0" fitWidth="48.0" onMousePressed="#refrashPage" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../static/images/refreshIcon.png" />
+                     </image>
+                  </ImageView>
+              </items>
+            </ToolBar>
+            <ScrollPane fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefViewportHeight="1024.0" prefViewportWidth="768.0">
+               <content>
+                  <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Birlik" GridPane.rowIndex="1" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Adı" GridPane.rowIndex="2" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Soyadı" GridPane.rowIndex="3" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rütbe" GridPane.rowIndex="4" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sicil" GridPane.rowIndex="5" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tel" GridPane.rowIndex="6" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tezler" GridPane.rowIndex="7" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kurslar" GridPane.rowIndex="8" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ales" GridPane.rowIndex="9" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="YDS/YÖKDİL/KPDS" GridPane.rowIndex="10" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Açıklama" GridPane.rowIndex="14" />
+                        <TextField fx:id="txtFieldAd" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets top="4.0" />
+                           </GridPane.margin></TextField>
+                        <TextField fx:id="txtFieldSoyad" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets top="4.0" />
+                           </GridPane.margin></TextField>
+                        <TextField fx:id="txtFieldSicil" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <GridPane.margin>
+                              <Insets top="4.0" />
+                           </GridPane.margin></TextField>
+                        <TextField fx:id="txtFieldTel" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <GridPane.margin>
+                              <Insets bottom="4.0" top="4.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="txtFieldAciklama" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                        <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="15">
+                           <children>
+                              <Button fx:id="buttonAdd" mnemonicParsing="false" onAction="#addPersonel" text="Ekle">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="buttonUpdate" mnemonicParsing="false" onAction="#updatePersonel" prefHeight="25.0" prefWidth="82.0" text="Güncelle" textFill="#5409f5">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="buttonDelete" layoutX="171.0" layoutY="10.0" mnemonicParsing="false" onAction="#deletePersonel" prefHeight="25.0" prefWidth="30.0" text="Sil" textFill="RED" />
+                           </children>
+                        </HBox>
+                        <ListView fx:id="listTez" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </ListView>
+                        <ListView fx:id="listKurs" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <ListView fx:id="listAles" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#fllSinavSonuc" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                        <ListView fx:id="listYdsYokdilKpds" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#fllSinavSonuc" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TC Kimlik No" />
+                        <TextField fx:id="txtFieldTcNo" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" />
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#move2listTez" text="&lt;&lt;" textFill="LIME">
+                                 <opaqueInsets>
+                                    <Insets bottom="5.0" />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#move2listTezOther" text="&gt;&gt;" textFill="RED">
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#addTez" prefHeight="25.0" prefWidth="60.0" text="Ekle">
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#updateTez" prefHeight="25.0" prefWidth="60.0" text="Düzenle" textFill="#5409f5">
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox GridPane.columnIndex="3" GridPane.rowIndex="7">
+                           <children>
+                              <TextField fx:id="txtFieldsearchTez" onAction="#fillTez" promptText="Ara" />
+                              <ListView fx:id="listTezOther" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="410.0" layoutY="482.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="8">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#move2listKurs" text="&lt;&lt;" textFill="LIME">
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#move2listKursOther" text="&gt;&gt;" textFill="RED">
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#updateKurs" text="Düzenle" textFill="#5409f5">
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox GridPane.columnIndex="3" GridPane.rowIndex="8">
+                           <children>
+                              <TextField fx:id="txtFieldsearchKurs" maxWidth="1.7976931348623157E308" onAction="#fillKurs" promptText="Ara" />
+                              <ListView fx:id="listKursOther" layoutX="479.0" layoutY="482.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="359.0" layoutY="357.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="9">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#addAles" prefHeight="25.0" prefWidth="60.0" text="Ekle">
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#updateAles" prefHeight="25.0" prefWidth="60.0" text="Düzenle" textFill="#5409f5">
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button layoutX="14.0" layoutY="63.0" mnemonicParsing="false" onAction="#deleteAles" prefHeight="25.0" prefWidth="60.0" text="Sil" textFill="RED" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="359.0" layoutY="431.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="10">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#addYdsYokdilKpds" prefWidth="60.0" text="Ekle">
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#updateYdsYokdilKpds" text="Düzenle" textFill="#5409f5">
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#deleteYdsYokdilKpds" prefHeight="25.0" prefWidth="60.0" text="Sil" textFill="RED" />
+                           </children>
+                        </VBox>
+                        <Button mnemonicParsing="false" onAction="#addBirlik" prefWidth="60.0" text="Ekle" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="5.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <HBox GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <ComboBox fx:id="cmBoxBirlik" maxWidth="1.7976931348623157E308" onShowing="#fillBirlik" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <HBox.margin>
+                                    <Insets top="4.0" />
+                                 </HBox.margin></ComboBox>
+                              <TextField fx:id="txtFieldSearchBirlik" maxWidth="1.7976931348623157E308" onAction="#fillBirlik" promptText="Ara">
+                                 <HBox.margin>
+                                    <Insets top="4.0" />
+                                 </HBox.margin></TextField>
+                           </children>
+                        </HBox>
+                        <HBox GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <children>
+                              <ComboBox fx:id="cmBoxRutbe" layoutX="110.0" layoutY="73.0" maxWidth="1.7976931348623157E308" onShowing="#fillRutbe" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <HBox.margin>
+                                    <Insets top="4.0" />
+                                 </HBox.margin></ComboBox>
+                              <TextField fx:id="txtFieldSearchRutbe" maxWidth="1.7976931348623157E308" promptText="Ara">
+                                 <HBox.margin>
+                                    <Insets top="4.0" />
+                                 </HBox.margin></TextField>
+                           </children>
+                        </HBox>
+                        <Button layoutX="363.0" layoutY="70.0" mnemonicParsing="false" onAction="#addRutbe" prefWidth="60.0" text="Ekle" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="5.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#updateBirlik" prefWidth="60.0" text="Düzenle" textFill="#5409f5" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Button layoutX="477.0" layoutY="46.0" mnemonicParsing="false" onAction="#updateRutbe" prefWidth="60.0" text="Düzenle" textFill="#5409f5" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <ListView fx:id="listBelge" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                        <Text layoutX="15.0" layoutY="607.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Belgeler" GridPane.rowIndex="11" />
+                        <Text layoutX="15.0" layoutY="672.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yayınlar" GridPane.rowIndex="12" />
+                        <ListView fx:id="listYayin" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                        <ListView fx:id="listKitap" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kitaplar" GridPane.rowIndex="13" />
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="11">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#addBelge" prefWidth="60.0" text="Ekle">
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#updateBelge" text="Düzenle" textFill="#5409f5">
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#deleteBelge" prefHeight="25.0" prefWidth="60.0" text="Sil" textFill="RED" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="13">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#addKitap" prefWidth="60.0" text="Ekle">
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#updateKitap" text="Düzenle" textFill="#5409f5">
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#deleteKitap" prefHeight="25.0" prefWidth="60.0" text="Sil" textFill="RED" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="12">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#addYayin" prefWidth="60.0" text="Ekle">
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#updateYayin" text="Düzenle" textFill="#5409f5">
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#deleteYayin" prefHeight="25.0" prefWidth="60.0" text="Sil" textFill="RED" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="0.0" prefWidth="68.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="142.0" minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="120.0" minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="96.0" minHeight="4.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="96.0" minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="96.0" minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="96.0" minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="96.0" minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="7.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

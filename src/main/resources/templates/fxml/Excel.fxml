@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="455.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktopApp.ui.controllers.ExcelController">
+   <children>
+      <Button layoutX="14.0" layoutY="61.0" mnemonicParsing="false" onAction="#importData" text="İçe Aktar" />
+      <Button layoutX="371.0" layoutY="61.0" mnemonicParsing="false" onAction="#exportData" text="Dışa Aktar" />
+   </children>
+</AnchorPane>
